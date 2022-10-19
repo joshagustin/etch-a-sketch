@@ -1,5 +1,4 @@
 let mouseDown = false;
-const sizeButton = document.querySelector('.size.button');
 const slider = document.querySelector('.slider');
 createGrid(4);
 
@@ -78,7 +77,6 @@ window.addEventListener('mouseup', () => {
     mouseDown = false;
 });
 
-sizeButton.addEventListener('click', changeGridSize);
 // separate change and input events to prevent lag from constantly updating the grid
 // update the grid only when user settles on a value
 slider.addEventListener('change', changeGridSize);
