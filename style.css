@@ -22,6 +22,4 @@ body {
 
 .gridCell {
   flex: 1 1 auto;
-  height: 150px;
-  width: 150px;
 }
