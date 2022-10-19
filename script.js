@@ -1,10 +1,11 @@
 let mouseDown = false;
 const sizeButton = document.querySelector('.size.button');
+const slider = document.querySelector('.slider');
 createGrid(4);
 
 function createGrid(size) {
     const container = document.querySelector('.container');
-    // size in px
+    // size in px;
     const containerSize = container.offsetWidth;
     const cellSideLength = containerSize / size;
     const totalCells = size ** 2
@@ -16,6 +17,7 @@ function createGrid(size) {
         container.appendChild(gridCell);
     }
     addEventListenerToCells();
+    updateGridSizeDisplay();
 }
 
 function colorCellClick() {
@@ -28,7 +30,8 @@ function colorCellMouse() {
 }
 
 function changeGridSize() {
-    const newSize = getGridSize();
+    const newSize = this.value;
+    console.log(newSize);
     if (newSize == null) return;
     deleteGrid();
     createGrid(newSize);
@@ -60,6 +63,13 @@ function addEventListenerToCells() {
     });
 }
 
+function updateGridSizeDisplay() {
+    const size = document.querySelector('.slider').value;
+    const textContainer = document.querySelector('.grid-size-display');
+    const text = `${size} x ${size}`;
+    textContainer.textContent = text;
+}
+
 window.addEventListener('mousedown', () => {
     mouseDown = true;
 });
@@ -69,3 +79,7 @@ window.addEventListener('mouseup', () => {
 });
 
 sizeButton.addEventListener('click', changeGridSize);
+// separate change and input events to prevent lag from constantly updating the grid
+// update the grid only when user settles on a value
+slider.addEventListener('change', changeGridSize);
+slider.addEventListener('input', updateGridSizeDisplay);
