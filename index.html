@@ -6,20 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Etch-a-Sketch</title>
   <link rel="stylesheet" href="./style.css">
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Press Start 2P' rel='stylesheet'>
   <script src="./script.js" defer></script>
 </head>
 <body>
   <div class="options-container">
     <h1>Etch-a-Sketch</h1>
     <div class="slider-container">
-      <input type="range" min="1" max="100" value="4" class="slider">
+      <input type="range" min="1" max="100" value="10" class="slider">
       <p class="grid-size-display"></p>
     </div>
-    <button type="button" class="color #FFFFFF">ERASER</button>
     <button type="button" class="color #011627">BLUE</button>
+    <button type="button" class="color #FFFFFF">ERASER</button>
     <div class="color-container">
-      <label for="color-selector">Custom color:</label>
-      <input type="color" id="color-selector" name="color-selector" value="#ffcc00">
+      <label for="color-selector">CUSTOM COLOR:</label>
+      <input type="color" id="color-selector" name="color-selector" value="#011627">
     </div>
   </div>
   <div class="container"></div>

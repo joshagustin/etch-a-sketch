@@ -3,7 +3,7 @@ let color = '#011627';
 const slider = document.querySelector('.slider');
 const colorButtons = document.querySelectorAll('.color');
 const colorSelector = document.querySelector('#color-selector');
-createGrid(4);
+createGrid(Number(slider.value));
 
 function createGrid(size) {
     const container = document.querySelector('.container');

@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: Oswald, sans-serif;
 }
 
 body {
@@ -10,6 +11,33 @@ body {
   display: flex;
   justify-content: center;
   gap: 100px;
+}
+
+h1 {
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 1.5em;
+}
+
+button {
+  align-self: center;
+  height: 40px;
+  width: 75%;
+  cursor: pointer;
+  background-color: #ff6f00;
+  font-size: 20px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 5px 10px #80808080;
+}
+
+button:hover {
+  background-color: #954000ba;
+}
+
+button:active {
+  background-color: #954000ba;
+  box-shadow: 0 4px #80808080;
+  transform: translateY(3px);
 }
 
 .container {
@@ -84,12 +112,10 @@ body {
 
 #color-selector::-webkit-color-swatch {
   border-radius: 15px;
-  border: none;
 }
 
 #color-selector::-moz-color-swatch {
   border-radius: 15px;
-  border: none;
 }
 
 .color-container {
