@@ -40,6 +40,14 @@ button:active {
   transform: translateY(3px);
 }
 
+.erase-all {
+  background-color: #de4d34;
+}
+.erase-all:hover,
+.erase-all:active {
+  background-color: #a63b29;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -123,4 +131,5 @@ button:active {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  margin-top: 20px;
 }

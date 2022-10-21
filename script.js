@@ -1,8 +1,9 @@
 let mouseDown = false;
 let color = '#011627';
 const slider = document.querySelector('.slider');
-const colorButtons = document.querySelectorAll('.color');
+const eraserButton = document.querySelector('.color');
 const colorSelector = document.querySelector('#color-selector');
+const eraseAllButton = document.querySelector('.erase-all');
 createGrid(Number(slider.value));
 
 function createGrid(size) {
@@ -82,6 +83,13 @@ function changeColor() {
     color = this.value;
 }
 
+function eraseAll() {
+    const gridCells = document.querySelectorAll('.gridCell');
+    gridCells.forEach(cell => {
+        cell.style.background = '#ffffff';
+    });
+}
+
 window.addEventListener('mousedown', e => {
     mouseDown = true;
 });
@@ -94,7 +102,6 @@ window.addEventListener('mouseup', () => {
 // update the grid only when user settles on a value
 slider.addEventListener('change', changeGridSize);
 slider.addEventListener('input', updateGridSizeDisplay);
-colorButtons.forEach(button => {
-    button.addEventListener('click', changeColor);
-});
+eraserButton.addEventListener('click', changeColor);
 colorSelector.addEventListener('input', changeColor);
+eraseAllButton.addEventListener('click', eraseAll);
