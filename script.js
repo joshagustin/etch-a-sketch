@@ -2,6 +2,7 @@ let mouseDown = false;
 let color = '#011627';
 const slider = document.querySelector('.slider');
 const colorButtons = document.querySelectorAll('.color');
+const colorSelector = document.querySelector('#color-selector');
 createGrid(4);
 
 function createGrid(size) {
@@ -74,7 +75,11 @@ function updateGridSizeDisplay() {
 }
 
 function changeColor() {
-    color = this.classList[1];
+    if (this.classList.length) {
+        color = this.classList[1];
+        return;
+    }
+    color = this.value;
 }
 
 window.addEventListener('mousedown', e => {
@@ -92,3 +97,4 @@ slider.addEventListener('input', updateGridSizeDisplay);
 colorButtons.forEach(button => {
     button.addEventListener('click', changeColor);
 });
+colorSelector.addEventListener('input', changeColor);

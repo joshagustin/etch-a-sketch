@@ -29,6 +29,9 @@ body {
 }
 
 .options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   padding-top: 100px;
   text-align: center;
 }
@@ -67,4 +70,31 @@ body {
   border-radius: 50%;
   background: #ffcc00;
   cursor: pointer;
+}
+
+#color-selector {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  height: 50px;
+  width: 75px;
+}
+
+#color-selector::-webkit-color-swatch {
+  border-radius: 15px;
+  border: none;
+}
+
+#color-selector::-moz-color-swatch {
+  border-radius: 15px;
+  border: none;
+}
+
+.color-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
