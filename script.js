@@ -23,6 +23,8 @@ function createGrid(size) {
 
 function colorCellClick(e) {
     this.style.background = color;
+    // prevents dragging behavior of pointer on cells
+    e.preventDefault();
 }
 
 function colorCellMouse() {
