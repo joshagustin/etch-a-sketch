@@ -1,5 +1,7 @@
 let mouseDown = false;
+let color = '#011627';
 const slider = document.querySelector('.slider');
+const colorButtons = document.querySelectorAll('.color');
 createGrid(4);
 
 function createGrid(size) {
@@ -19,13 +21,13 @@ function createGrid(size) {
     updateGridSizeDisplay();
 }
 
-function colorCellClick() {
-    this.style.background = '#00FFFF';
+function colorCellClick(e) {
+    this.style.background = color;
 }
 
 function colorCellMouse() {
     if (!mouseDown) return;
-    this.style.background = '#00FFFF';
+    this.style.background = color;
 }
 
 function changeGridSize() {
@@ -69,7 +71,11 @@ function updateGridSizeDisplay() {
     textContainer.textContent = text;
 }
 
-window.addEventListener('mousedown', () => {
+function changeColor() {
+    color = this.classList[1];
+}
+
+window.addEventListener('mousedown', e => {
     mouseDown = true;
 });
 
@@ -81,3 +87,6 @@ window.addEventListener('mouseup', () => {
 // update the grid only when user settles on a value
 slider.addEventListener('change', changeGridSize);
 slider.addEventListener('input', updateGridSizeDisplay);
+colorButtons.forEach(button => {
+    button.addEventListener('click', changeColor);
+});
