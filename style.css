@@ -23,39 +23,52 @@ button {
   height: 40px;
   width: 75%;
   cursor: pointer;
-  background-color: #ff6f00;
   font-size: 20px;
   border: none;
   border-radius: 20px;
   box-shadow: 5px 10px #80808080;
 }
 
-button:hover {
-  background-color: #954000ba;
-}
-
 button:active {
-  background-color: #954000ba;
   box-shadow: 0 4px #80808080;
   transform: translateY(3px);
+}
+
+.eraser {
+  background-color: #ff6f00;
+}
+
+.eraser:hover,
+.eraser:active {
+  background-color: #954000ba;
 }
 
 .erase-all {
   background-color: #de4d34;
 }
+
 .erase-all:hover,
 .erase-all:active {
   background-color: #a63b29;
 }
 
-button.set {
+.set {
   background-color: #011627;
 }
 
-button.rainbow {
+.rainbow {
   background-image: linear-gradient(to right, red, orange, yellow, green, blue,
   indigo, violet);
   color: #ffffff;
+}
+
+.selector {
+  background-color: #ffffff;
+}
+
+.selector:hover,
+.selector:active {
+  background-color: #9c9c9c;
 }
 
 .container {
@@ -77,7 +90,7 @@ button.rainbow {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding-top: 100px;
+  padding-top: 50px;
   text-align: center;
 }
 
