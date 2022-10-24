@@ -159,7 +159,7 @@ function highlightButton(node) {
         formerActiveButton.classList.toggle('active');
     }
     // triggered by button click
-    if (node instanceof PointerEvent) {
+    if (node instanceof MouseEvent) {
         this.classList.toggle('active');
         return;
     }
