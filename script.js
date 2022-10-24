@@ -98,6 +98,7 @@ function updateGridSizeDisplay() {
 function changeColor() {
     rainbowMode = false;
     selectorMode = false;
+    highlightButton(colorButton);
     // color button
     if (this.classList.length) {
         color = this.classList[1];
@@ -152,12 +153,17 @@ function componentToHex(c) {
     return hex.length === 1 ? '0' + hex : hex;
 }
 
-function highlightButton() {
+function highlightButton(node) {
     const formerActiveButton = document.querySelector('.active');
     if (formerActiveButton) {
         formerActiveButton.classList.toggle('active');
     }
-    this.classList.toggle('active');
+    // triggered by button click
+    if (node instanceof PointerEvent) {
+        this.classList.toggle('active');
+        return;
+    }
+    node.classList.toggle('active');
 }
 
 window.addEventListener('mousedown', () => {
