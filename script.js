@@ -8,6 +8,7 @@ const eraserButton = document.querySelector('.eraser');
 const colorButton = document.querySelector('.color');
 const rainbowButton = document.querySelector('.rainbow');
 const selectorButton = document.querySelector('.selector');
+const optionButtons = document.querySelectorAll('.option');
 let color = colorSelector.value;
 createGrid(Number(slider.value));
 
@@ -151,6 +152,14 @@ function componentToHex(c) {
     return hex.length === 1 ? '0' + hex : hex;
 }
 
+function highlightButton() {
+    const formerActiveButton = document.querySelector('.active');
+    if (formerActiveButton) {
+        formerActiveButton.classList.toggle('active');
+    }
+    this.classList.toggle('active');
+}
+
 window.addEventListener('mousedown', () => {
     mouseDown = true;
 });
@@ -176,3 +185,4 @@ rainbowButton.addEventListener('click', () => {
     selectorMode = false;
 });
 selectorButton.addEventListener('click', () => selectorMode = true);
+optionButtons.forEach(optionButton => optionButton.addEventListener('click', highlightButton));

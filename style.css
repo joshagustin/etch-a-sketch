@@ -52,7 +52,7 @@ button:active {
   background-color: #a63b29;
 }
 
-.set {
+.color {
   background-color: #011627;
 }
 
@@ -64,6 +64,7 @@ button:active {
 
 .selector {
   background-color: #ffffff;
+  border: 1px solid #000000;
 }
 
 .selector:hover,
@@ -153,4 +154,13 @@ button:active {
   align-items: center;
   justify-content: center;
   gap: 10px;
+}
+
+button.active {
+  box-shadow: 5px 10px #ffcc00;
+}
+
+button.active:active {
+  box-shadow: 0 4px #a18100;
+  transform: translateY(3px);
 }
