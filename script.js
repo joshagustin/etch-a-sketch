@@ -54,11 +54,8 @@ function getGridSize() {
 }
 
 function deleteGrid() {
-    const gridCells = document.querySelectorAll('.gridCell');
     const container = document.querySelector('.container');;
-    gridCells.forEach(cell => {
-        container.removeChild(cell);
-    });
+    container.innerHTML = '';
 }
 
 function addEventListenerToCells() {
