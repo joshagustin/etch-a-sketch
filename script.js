@@ -2,7 +2,8 @@ let mouseDown = false;
 const slider = document.querySelector('.slider');
 const colorSelector = document.querySelector('#color-selector');
 const eraseAllButton = document.querySelector('.erase-all');
-const colorButtons = document.querySelectorAll('.color');
+const eraserButton = document.querySelector('.eraser');
+const colorButton = document.querySelector('.color');
 let color = colorSelector.value;
 createGrid(Number(slider.value));
 
@@ -83,8 +84,8 @@ function changeColor() {
     // color slider
     else {
         color = this.value;
+        updateColorButton(color);
     }
-    updateColorButton(color);
 }
 
 function eraseAll() {
@@ -95,14 +96,12 @@ function eraseAll() {
 }
 
 function updateColorButton(newColor) {
-    if (newColor === '#ffffff') return;
-    const colorButton = document.querySelector('.set');
     const oldColor = colorButton.classList[1];
     colorButton.style.background = newColor;
     colorButton.classList.replace(oldColor, newColor);
 }
 
-window.addEventListener('mousedown', e => {
+window.addEventListener('mousedown', () => {
     mouseDown = true;
 });
 
@@ -115,7 +114,8 @@ window.addEventListener('mouseup', () => {
 slider.addEventListener('change', changeGridSize);
 slider.addEventListener('input', updateGridSizeDisplay);
 colorSelector.addEventListener('input', changeColor);
-colorButtons.forEach(button => {
-    button.addEventListener('click', changeColor);
-});
+colorButton.addEventListener('click', changeColor)
 eraseAllButton.addEventListener('click', eraseAll);
+eraserButton.addEventListener('click', () => {
+    color = '#ffffff';
+});
