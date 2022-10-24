@@ -52,6 +52,12 @@ button.set {
   background-color: #011627;
 }
 
+button.rainbow {
+  background-image: linear-gradient(to right, red, orange, yellow, green, blue,
+  indigo, violet);
+  color: #ffffff;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -134,5 +140,4 @@ button.set {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-top: 20px;
 }

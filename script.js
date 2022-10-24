@@ -1,9 +1,11 @@
 let mouseDown = false;
+let rainbowMode = false;
 const slider = document.querySelector('.slider');
 const colorSelector = document.querySelector('#color-selector');
 const eraseAllButton = document.querySelector('.erase-all');
 const eraserButton = document.querySelector('.eraser');
 const colorButton = document.querySelector('.color');
+const rainbowButton = document.querySelector('.rainbow');
 let color = colorSelector.value;
 createGrid(Number(slider.value));
 
@@ -25,13 +27,21 @@ function createGrid(size) {
 }
 
 function colorCellClick(e) {
-    this.style.background = color;
     // prevents dragging behavior of pointer on cells
     e.preventDefault();
+    if (rainbowMode) {
+        this.style.background = generateRandomColor();
+        return;
+    }
+    this.style.background = color;
 }
 
 function colorCellMouse() {
     if (!mouseDown) return;
+    if (rainbowMode) {
+        this.style.background = generateRandomColor();
+        return;
+    }
     this.style.background = color;
 }
 
@@ -74,6 +84,7 @@ function updateGridSizeDisplay() {
 }
 
 function changeColor() {
+    rainbowMode = false;
     // color buttons
     if (this.classList.length) {
         color = this.classList[1];
@@ -98,6 +109,13 @@ function updateColorButton(newColor) {
     colorButton.classList.replace(oldColor, newColor);
 }
 
+function generateRandomColor() {
+    const randRed = Math.floor(Math.random() * 256);
+    const randGreen = Math.floor(Math.random() * 256);
+    const randBlue = Math.floor(Math.random() * 256);
+    return `rgb(${randRed}, ${randGreen}, ${randBlue})`;
+}
+
 window.addEventListener('mousedown', () => {
     mouseDown = true;
 });
@@ -115,4 +133,6 @@ colorButton.addEventListener('click', changeColor)
 eraseAllButton.addEventListener('click', eraseAll);
 eraserButton.addEventListener('click', () => {
     color = '#ffffff';
+    rainbowMode = false;
 });
+rainbowButton.addEventListener('click', () => rainbowMode = true);
